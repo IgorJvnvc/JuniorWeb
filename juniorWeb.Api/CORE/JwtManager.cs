@@ -30,12 +30,12 @@ namespace JuniorWeb.Api.CORE
                 throw new UnauthorizedAccessException();
             }
 
-            //var valid = BCrypt.Net.BCrypt.Verify(password, user.Password);
+            var valid = BCrypt.Net.BCrypt.Verify(password, user.Password);
 
-            //if (!valid)
-            //{
-            //    throw new UnauthorizedAccessException();
-            //}
+            if (!valid)
+            {
+                throw new UnauthorizedAccessException();
+            }
 
             var actor = new JwtUser
             {
